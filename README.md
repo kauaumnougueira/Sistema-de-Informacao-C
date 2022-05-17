@@ -1,2 +1,2 @@
 # Sistema-de-Informacao-C
-repositório criado para postagem de estudos e atividades da linguagem C no Curso "Sistema de informação - IFMA"
+Repositório para guardar as atividades e estudos de sistemas de informação - IFMA- do aluno Kauã Nogueira
