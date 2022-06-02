@@ -79,7 +79,7 @@ int main() {
       case 4:
         // retorna os valores na ordem inversa de inserção
         for (int i = lenVet - 1; i >= 0; i--) {
-          printf("%i", vet[i]);
+          printf("%i ", vet[i]);
         }
         break;
       case 5:
