@@ -5,7 +5,7 @@
 int main(){
     setlocale(LC_ALL, "portuguese");
 
-    int lenVet = 5, vet[lenVet], menu[7] = {0,1,2,3,4,5,6}, escolhaMenu,  maiorNum, positionImp[5], search, position, j = 0;
+    int lenVet = 5, vet[lenVet], menu[7] = {0,1,2,3,4,5,6}, escolhaMenu,  maiorNum, positionImp[5], search, position, j = 0, soma = 0;
   float media = 0.0;
     char escolha;
 
@@ -39,9 +39,10 @@ int main(){
                     break;
                 case 1:
                 //mostra o maior valor
-                    for(int i = 0; i < 5; i++){
+                    for(int i = 0; i < lenVet; i++){
                         if(vet[i] > maiorNum){
                             maiorNum = vet[i];
+                            printf("aaaa");
                         }
                     }
                   printf("O maior número é: %i", maiorNum);
@@ -49,11 +50,10 @@ int main(){
                 case 2:
                 //devolver a média dos valor
                     for(int i = 0; i < 5; i++){
-                        int soma = 0;
                         soma += vet[i];
                         media = soma/lenVet;
                     }
-                    printf("Essa é a média dos números do vetor: %f", media);
+                    printf("Essa é a média dos números do vetor: %.2f", media);
                     break;
                 case 3:
                 //devolve a posição dos valores ímpares
@@ -62,8 +62,9 @@ int main(){
                         if(vet[i] %2 != 0){
                             positionImp[j] = i;
                             j++;
+                           printf("%i ", positionImp[i] + 1);
                         }
-                        printf("%i ", positionImp[i] + 1);
+                       
                     }
                     break;
                 case 4: 
@@ -75,7 +76,7 @@ int main(){
                 case 5:
                 //procura um número no vetor e retorna o número e a posição
                     printf("Informe o valor para procurar no vetor: ");
-                    scanf("%i", search);
+                    scanf("%i", &search);
                     for(int i = 0; i < lenVet; i++){
                         if(vet[i] == search){
                             position = i;
