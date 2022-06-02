@@ -5,84 +5,96 @@
 int main(){
     setlocale(LC_ALL, "portuguese");
 
-    int lenVet = 5, vet[5], menu[7] = {0,1,2,3,4,5,6}, escolhaMenu, maiorNum, media = 0;
-    char escolha,
-    zero[20] = {"0. sair"},
-    um[40] = {"1. O maior valor"},
-    dois[40] = {"2. A m�dia dos valores"},
-    tres[50] = {"3. As posi��es em que existam valores �mpares"},
-    quatro[40] = {"4. Os valores dispostos em ordem inversa"},
-    cinco[111] = {"5. Buscar n�mero: informe um n�mero e o procure no vetor preenchido, retornando a posi��o o valor desse n�mero"},
-    seis[52] = {"6. Multiplique os valores pelo inverso de seu �ndice"};
+    int lenVet = 5, vet[lenVet], menu[7] = {0,1,2,3,4,5,6}, escolhaMenu,  maiorNum, positionImp[5], search, position, j = 0;
+  float media = 0.0;
+    char escolha;
 
     //leitura do vetor
     for(int i = 0; i < lenVet; i++){
-        printf("%i� ", i+1);
-        scanf("%i", &vet);
+        printf("%i° ", i+1);
+        scanf("%i", &vet[i]);
     }
 
-    //escolha para operar ou n�o
+    //escolha para operar ou não
     do{
-        printf("Deseja realizar uma nova opera��o?(s/n) ");
+        printf("\nDeseja realizar uma nova operação?(s/n) ");
         scanf(" %99[^\n]", &escolha);
         if(escolha == 's'){
 
             //print do menu (7 VEZES / FEIO)
-            printf("Qual opera��o deseja executar?/n ");
-            for(int i = 0; i < 20; i++){
-                printf("%c", zero[i]);
-            }
-            printf("\n");
-            for(int i = 0; i < 40; i++){
-                printf("%c", um[i]);
-            }
-            printf("\n");
-            for(int i = 0; i < 40; i++){
-                printf("%c", dois[i]);
-            }
-            printf("\n");
-            for(int i = 0; i < 50; i++){
-                printf("%c", tres[i]);
-            }
-            printf("\n");
-            for(int i = 0; i < 40; i++){
-                printf("%c", quatro[i]);
-            }
-            printf("\n");
-            for(int i = 0; i < 110; i++){
-                printf("%c", cinco[i]);
-            }
-            printf("\n");
-            for(int i = 0; i < 52; i++){
-                printf("%c", seis[i]);
-            }
-            printf("\n");
-
+            printf("0. sair\n");
+            printf("1. O maior valor\n");
+            printf("2. A média dos valores\n");
+            printf("3. As posições em que existam valores ímpares\n");
+            printf("4. Os valores dispostos em ordem inversa\n");
+            printf("5. Buscar número: informe um número e o procure no vetor preenchido, retornando a posição o valor desse número\n");
+                printf("6. Multiplique os valores pelo inverso de seu índice\n");
+            printf("Qual operação deseja executar? ");
+            scanf("%i", &escolhaMenu);
             //iniciando o programa (de fato)
             switch (escolhaMenu){
-                //encerrar o programa
                 case 0:
+                //encerra o programa
+                    escolha = 'n';
                     break;
-                //mostrar o maior valor
                 case 1:
+                //mostra o maior valor
                     for(int i = 0; i < 5; i++){
                         if(vet[i] > maiorNum){
                             maiorNum = vet[i];
                         }
                     }
+                  printf("O maior número é: %i", maiorNum);
                     break;
                 case 2:
+                //devolver a média dos valor
                     for(int i = 0; i < 5; i++){
                         int soma = 0;
                         soma += vet[i];
-                        media = soma/5;
+                        media = soma/lenVet;
                     }
+                    printf("Essa é a média dos números do vetor: %f", media);
                     break;
                 case 3:
+                //devolve a posição dos valores ímpares
+                    printf("Essas são as posições que contém números ímpares: ");
+                    for(int i = 0; i < lenVet; i++){
+                        if(vet[i] %2 != 0){
+                            positionImp[j] = i;
+                            j++;
+                        }
+                        printf("%i ", positionImp[i] + 1);
+                    }
+                    break;
+                case 4: 
+                //retorna os valores na ordem inversa de inserção
+                    for(int i = lenVet - 1; i >= 0; i--){
+                        printf("%i", vet[i]);
+                    }
+                    break;
+                case 5:
+                //procura um número no vetor e retorna o número e a posição
+                    printf("Informe o valor para procurar no vetor: ");
+                    scanf("%i", search);
+                    for(int i = 0; i < lenVet; i++){
+                        if(vet[i] == search){
+                            position = i;
+                            printf("O número %i foi encontrado na posição %i", search, position + 1);
+                        }else{
+                            printf("-1");
+                        }
+                    }
+                    break;
+                case 6:
+                //retorna os valores multiplicados pelo inverso de seus índices
+                    for(int i = 0; i > lenVet; i++){
+                        printf("%i", vet[i] * -i);
+                    }
+                    break;
+              default:
+                break;
             }
 
         }
-    }while(escolha == "s");
+    }while(escolha == 's');
 }
-
-
