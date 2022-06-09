@@ -5,8 +5,8 @@
 int main() {
   setlocale(LC_ALL, "portuguese");
 
-  int lenVet = 5, vet[lenVet], menu[7] = {0, 1, 2, 3, 4, 5, 6}, escolhaMenu, maiorNum = 0, search, imp = 0, j = 0, soma = 0;
-  float media = 0.0;
+  int lenVet = 5, vet[lenVet], escolhaMenu, maiorNum = 0, search, imp = 0, j = 0;
+  float media = 0.0, soma = 0.0;
   char escolha;
 
   // leitura do vetor
